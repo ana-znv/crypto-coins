@@ -6,6 +6,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -71,7 +72,6 @@ fun Main() {
         color = Color(0xFF252525),
     ) {
         Column {
-            MainScreenAppBar()
             MainScreenList()
         }
     }
@@ -80,84 +80,83 @@ fun Main() {
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainScreenAppBar() {
-    Scaffold(
-        modifier = Modifier.fillMaxHeight(0.1f),
-        topBar = {
-            TopAppBar(
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = Color(0xFF323232),
-                    titleContentColor = Color.White,
-                ),
-                title = {
-                    Text(
-                        text = "Crypto Coins List",
-                        modifier = Modifier.alpha(0.7f),
-                        style = TextStyle(
-                            fontSize = 30.sp,
-                        )
-                    )
-                }
-            )
-        },
-    ) {
-    }
-}
-
-@Composable
 fun MainScreenList() {
-    LazyColumn {
-        items(15) {
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Column(
+    Column {
+        Scaffold(
+            modifier = Modifier.fillMaxHeight(0.1f),
+            topBar = {
+                TopAppBar(
+                    colors = TopAppBarDefaults.topAppBarColors(
+                        containerColor = Color(0xFF323232),
+                        titleContentColor = Color.White,
+                    ),
+                    title = {
+                        Text(
+                            text = "Crypto Coins List",
+                            modifier = Modifier.alpha(0.7f),
+                            style = TextStyle(
+                                fontSize = 30.sp,
+                            )
+                        )
+                    }
+                )
+            },
+        ) {
+        }
+        LazyColumn {
+            items(15) {
+                Row(
                     modifier = Modifier
-                        .alpha(0.8f)
-                        .padding(
-                            vertical = 20.dp,
-                            horizontal = 15.dp
-                        )
+                        .fillMaxWidth()
+                        .clickable { },
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Text(
-                        text = "Bitcoin",
-                        style = TextStyle(
-                            color = Color.White,
-                            fontSize = 30.sp
-                        )
-                    )
-                    Spacer(modifier = Modifier.height(5.dp))
-                    Text(
+                    Column(
                         modifier = Modifier
-                            .alpha(0.7f)
-                            .padding(horizontal = 4.dp),
-                        text = "$100000",
-                        style = TextStyle(
-                            color = Color.White,
-                            fontSize = 16.sp,
-                            fontWeight = FontWeight.Bold
+                            .alpha(0.8f)
+                            .padding(
+                                vertical = 20.dp,
+                                horizontal = 15.dp
+                            )
+                    ) {
+                        Text(
+                            text = "Bitcoin",
+                            style = TextStyle(
+                                color = Color.White,
+                                fontSize = 30.sp
+                            )
                         )
+                        Spacer(modifier = Modifier.height(5.dp))
+                        Text(
+                            modifier = Modifier
+                                .alpha(0.7f)
+                                .padding(horizontal = 4.dp),
+                            text = "$100000",
+                            style = TextStyle(
+                                color = Color.White,
+                                fontSize = 16.sp,
+                                fontWeight = FontWeight.Bold
+                            )
+                        )
+                    }
+                    Icon(
+                        modifier = Modifier
+                            .padding(end = 10.dp)
+                            .size(45.dp)
+                            .alpha(0.7f),
+                        imageVector = Icons.Filled.KeyboardArrowRight,
+                        contentDescription = "Next",
+                        tint = Color.White,
                     )
                 }
-                Icon(
-                    modifier = Modifier
-                        .padding(end = 10.dp)
-                        .size(45.dp)
-                        .alpha(0.7f),
-                    imageVector = Icons.Filled.KeyboardArrowRight,
-                    contentDescription = "Next",
-                    tint = Color.White,
+                HorizontalDivider(
+
+                    thickness = 2.dp,
+                    color = Color(0xFF4D4C4C),
+                    modifier = Modifier.padding(horizontal = 10.dp)
                 )
             }
-            HorizontalDivider(
-
-                thickness = 2.dp,
-                color = Color(0xFF4D4C4C),
-                modifier = Modifier.padding(horizontal = 10.dp)
-            )
         }
     }
 }
