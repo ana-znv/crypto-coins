@@ -16,7 +16,11 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.sp
 import com.example.cryptocoinslist.ui.theme.CryptoCoinsListTheme
 
 class MainActivity : ComponentActivity() {
@@ -58,11 +62,16 @@ fun MainScreenAppBar() {
         topBar = {
             TopAppBar(
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = Color(0xFF8E7426),
+                    containerColor = Color(0xFF252525),
                     titleContentColor = Color.White,
                 ),
                 title = {
-                    Text(text = "Crypto Coins List")
+                    Text(text = "Crypto Coins List",
+                        modifier = Modifier.alpha(0.7f),
+                        style = TextStyle(
+                            fontSize = 25.sp,
+                        )
+                    )
                 }
             )
         },
