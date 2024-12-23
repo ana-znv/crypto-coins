@@ -43,6 +43,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.cryptocoinslist.ui.theme.CryptoCoinsListTheme
 
 class MainActivity : ComponentActivity() {
@@ -71,16 +72,14 @@ fun Main() {
         modifier = Modifier.fillMaxSize(),
         color = Color(0xFF252525),
     ) {
-        Column {
-            MainScreenList()
-        }
+        AppNavHost()
     }
 }
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainScreenList() {
+fun MainScreenList(navController: NavController) {
     Column {
         Scaffold(
             modifier = Modifier.fillMaxHeight(0.1f),
@@ -108,7 +107,9 @@ fun MainScreenList() {
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .clickable { },
+                        .clickable {
+                            navController.navigate("details_screen")
+                        },
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
