@@ -1,10 +1,11 @@
-package com.example.cryptocoinslist
+package com.example.cryptocoinslist.routes
 
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.cryptocoinslist.screens.CryptoCoinScreen
+import com.example.cryptocoinslist.screens.CryptoCoinsList
 
 @Composable
 fun AppNavHost() {
@@ -14,8 +15,8 @@ fun AppNavHost() {
         navController = navController,
         startDestination = "main"
     ) {
-        composable("main") { MainScreenList(navController)}
-        composable("details") { DetailsScreen(navController) }
+        composable("main") { CryptoCoinsList(navController) }
+        composable("details") { CryptoCoinScreen(navController) }
     }
 }
 
