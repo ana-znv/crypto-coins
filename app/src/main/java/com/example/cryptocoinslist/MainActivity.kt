@@ -108,7 +108,7 @@ fun MainScreenList(navController: NavController) {
                     modifier = Modifier
                         .fillMaxWidth()
                         .clickable {
-                            navController.navigate("details_screen")
+                            navController.navigate("details")
                         },
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically

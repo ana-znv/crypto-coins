@@ -12,10 +12,10 @@ fun AppNavHost() {
     
     NavHost(
         navController = navController,
-        startDestination = "main_screen"
+        startDestination = "main"
     ) {
-        composable("main_screen") { MainScreenList(navController)}
-        composable("details_screen") { DetailsScreen(navController) }
+        composable("main") { MainScreenList(navController)}
+        composable("details") { DetailsScreen(navController) }
     }
 }
 
